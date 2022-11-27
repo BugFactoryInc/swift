@@ -1731,7 +1731,7 @@ _You can enable the following settings in Xcode by running [this script](resourc
 
   </details>
 
-* <a id='long-function-invocation'></a>(<a href='#long-function-invocation'>link</a>) **[Long](https://github.com/airbnb/swift#column-width) function invocations should also break on each argument.** Put the closing parenthesis on the last line of the invocation. [![SwiftFormat: wrapArguments](https://img.shields.io/badge/SwiftFormat-wrapArguments-7B0051.svg)](https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md#wrapArguments)
+* <a id='long-function-invocation'></a>(<a href='#long-function-invocation'>link</a>) **[Long](https://github.com/airbnb/swift#column-width) function invocations should also break on each argument.** Put the closing parenthesis on the next line of the invocation. [![SwiftFormat: wrapArguments](https://img.shields.io/badge/SwiftFormat-wrapArguments-7B0051.svg)](https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md#wrapArguments)
 
   <details>
 
@@ -1750,8 +1750,7 @@ _You can enable the following settings in Xcode by running [this script](resourc
     at: location,
     count: 5,
     color: starColor,
-    withAverageDistance: 4
-  )
+    withAverageDistance: 4)
 
   // WRONG
   universe.generate(5,
@@ -1763,13 +1762,15 @@ _You can enable the following settings in Xcode by running [this script](resourc
     at: location,
     count: 5,
     color: starColor,
-    withAverageDistance: 4)
+    withAverageDistance: 4
+  )
 
   // RIGHT
   universe.generate(
     5,
     .stars,
-    at: location)
+    at: location
+  )
   ```
 
   </details>

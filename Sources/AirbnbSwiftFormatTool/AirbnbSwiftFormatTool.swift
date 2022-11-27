@@ -7,7 +7,6 @@ import Foundation
 /// based on the Airbnb Swift Style Guide
 @main
 struct AirbnbSwiftFormatTool: ParsableCommand {
-
     // MARK: Internal
 
     @Argument(help: "The directories to format")
@@ -116,7 +115,8 @@ struct AirbnbSwiftFormatTool: ParsableCommand {
         return Command(
             log: log,
             launchPath: swiftFormatPath,
-            arguments: arguments)
+            arguments: arguments
+        )
     }
 
     /// Builds a command that runs the SwiftLint tool
@@ -140,14 +140,14 @@ struct AirbnbSwiftFormatTool: ParsableCommand {
         return Command(
             log: log,
             launchPath: swiftLintPath,
-            arguments: arguments)
+            arguments: arguments
+        )
     }
 
     private func log(_ string: String) {
         // swiftlint:disable:next no_direct_standard_out_logs
         print("[AibnbSwiftFormatTool]", string)
     }
-
 }
 
 extension Process {

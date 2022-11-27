@@ -16,16 +16,18 @@ let package = Package(
             capability: .command(
                 intent: .custom(
                     verb: "format",
-                    description: "Formats Swift source files according to the Airbnb Swift Style Guide"),
+                    description: "Formats Swift source files according to the Airbnb Swift Style Guide"
+                ),
                 permissions: [
                     .writeToPackageDirectory(reason: "Format Swift source files"),
-                ]),
+                ]
+            ),
             dependencies: [
                 "AirbnbSwiftFormatTool",
                 "SwiftFormat",
                 "SwiftLintBinary",
-            ]),
-
+            ]
+        ),
         .executableTarget(
             name: "AirbnbSwiftFormatTool",
             dependencies: [
@@ -34,22 +36,27 @@ let package = Package(
             resources: [
                 .process("airbnb.swiftformat"),
                 .process("swiftlint.yml"),
-            ]),
+            ]
+        ),
 
         .testTarget(
             name: "AirbnbSwiftFormatToolTests",
-            dependencies: ["AirbnbSwiftFormatTool"]),
+            dependencies: ["AirbnbSwiftFormatTool"]
+        ),
 
         .binaryTarget(
             name: "SwiftFormat",
             url: "https://github.com/calda/SwiftFormat/releases/download/0.53-beta-8/SwiftFormat.artifactbundle.zip",
-            checksum: "42b2612305c5bffe57102d6c1a2e137309b5cf246638ff9ff75e3260a6795a19"),
+            checksum: "42b2612305c5bffe57102d6c1a2e137309b5cf246638ff9ff75e3260a6795a19"
+        ),
 
         .binaryTarget(
             name: "SwiftLintBinary",
             url: "https://github.com/realm/SwiftLint/releases/download/0.53.0/SwiftLintBinary-macos.artifactbundle.zip",
-            checksum: "03416a4f75f023e10f9a76945806ddfe70ca06129b895455cc773c5c7d86b73e"),
-    ])
+            checksum: "03416a4f75f023e10f9a76945806ddfe70ca06129b895455cc773c5c7d86b73e"
+        ),
+    ]
+)
 
 // Emit an error on Linux, so Swift Package Manager's platform support detection doesn't say this package supports Linux
 // https://github.com/airbnb/swift/discussions/197#discussioncomment-4055303
