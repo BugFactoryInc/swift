@@ -11,12 +11,12 @@ import XcodeProjectPlugin
 /// to the Airbnb Swift Style Guide.
 @main
 struct AirbnbSwiftFormatPlugin {
-
     /// Calls the `AirbnbSwiftFormatTool` executable with the given arguments
     func performCommand(
         context: CommandContext,
         inputPaths: [String],
-        arguments: [String])
+        arguments: [String]
+    )
         throws
     {
         var argumentExtractor = ArgumentExtractor(arguments)
@@ -64,13 +64,11 @@ struct AirbnbSwiftFormatPlugin {
             throw CommandError.unknownError(exitCode: process.terminationStatus)
         }
     }
-
 }
 
 // MARK: CommandPlugin
 
 extension AirbnbSwiftFormatPlugin: CommandPlugin {
-
     // MARK: Internal
 
     func performCommand(context: PluginContext, arguments: [String]) async throws {
@@ -106,7 +104,8 @@ extension AirbnbSwiftFormatPlugin: CommandPlugin {
         try performCommand(
             context: context,
             inputPaths: inputPaths,
-            arguments: arguments)
+            arguments: arguments
+        )
     }
 
     // MARK: Private
@@ -125,18 +124,17 @@ extension AirbnbSwiftFormatPlugin: CommandPlugin {
         let packageDirectoryContents = try FileManager.default.contentsOfDirectory(
             at: URL(fileURLWithPath: package.directory.string),
             includingPropertiesForKeys: nil,
-            options: [.skipsHiddenFiles])
+            options: [.skipsHiddenFiles]
+        )
 
         let subdirectories = packageDirectoryContents.filter { $0.hasDirectoryPath }
         let rootSwiftFiles = packageDirectoryContents.filter { $0.pathExtension.hasSuffix("swift") }
         return (subdirectories + rootSwiftFiles).map { $0.path }
     }
-
 }
 
 #if canImport(XcodeProjectPlugin)
 extension AirbnbSwiftFormatPlugin: XcodeCommandPlugin {
-
     func performCommand(context: XcodePluginContext, arguments: [String]) throws {
         var argumentExtractor = ArgumentExtractor(arguments)
 
@@ -154,9 +152,9 @@ extension AirbnbSwiftFormatPlugin: XcodeCommandPlugin {
         try performCommand(
             context: context,
             inputPaths: Array(inputPaths),
-            arguments: argumentExtractor.remainingArguments)
+            arguments: argumentExtractor.remainingArguments
+        )
     }
-
 }
 #endif
 
