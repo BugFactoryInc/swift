@@ -13,6 +13,16 @@ on:
       - '.pre-commit-config.yaml'
       - 'scripts/git-format-staged.py'
       - 'scripts/swiftformat-wrapper.sh'
+  push:
+    branches:
+      - master
+    paths:
+      - 'Sources/AirbnbSwiftFormatTool/airbnb.swiftformat'
+      - 'Sources/AirbnbSwiftFormatTool/swiftlint.yml'
+      - '.github/workflows/synchronize-resources.yml'
+      - '.pre-commit-config.yaml'
+      - 'scripts/git-format-staged.py'
+      - 'scripts/swiftformat-wrapper.sh'
   workflow_dispatch:
 
 env:

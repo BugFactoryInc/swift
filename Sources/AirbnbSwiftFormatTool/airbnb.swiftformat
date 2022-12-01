@@ -33,6 +33,7 @@
 --guardelse next-line #elseOnSameLine
 --oneLineForEach wrap #preferForLoop
 --shortoptionals always #typeSugar
+--closurevoid preserve # redundantVoidReturnType
 
 --maxwidth 180 # wrap
 
