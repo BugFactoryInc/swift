@@ -419,7 +419,7 @@ _You can enable the following settings in Xcode by running [this script](resourc
   <details>
 
   ```swift
-  //WRONG
+  // WRONG
   class MyClass {
 
     func request(completion: () -> Void) {
@@ -1639,7 +1639,7 @@ _You can enable the following settings in Xcode by running [this script](resourc
   <details>
 
   ```swift
-  //WRONG
+  // WRONG
   class MyClass {
 
     func request(completion: () -> Void) {
@@ -2327,7 +2327,7 @@ _You can enable the following settings in Xcode by running [this script](resourc
 
   import Foundation
 
-  //RIGHT
+  // RIGHT
 
   //  Copyright © 2018 Airbnb. All rights reserved.
   //
@@ -2356,7 +2356,7 @@ _You can enable the following settings in Xcode by running [this script](resourc
   import Nimble
   import Quick
 
-  //RIGHT
+  // RIGHT
 
   //  Copyright © 2018 Airbnb. All rights reserved.
   //
