@@ -23,7 +23,7 @@
 --typeblanklines preserve # blankLinesAtStartOfScope, blankLinesAtEndOfScope
 --emptybraces no-space # emptyBraces
 --someAny disabled # opaqueGenericParameters
---closurevoid disabled # redundantVoidReturnType
+--closurevoid preserve # redundantVoidReturnType
 
 --maxwidth 180 # wrap
 
