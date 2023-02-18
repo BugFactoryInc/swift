@@ -75,3 +75,4 @@
 --rules opaqueGenericParameters
 --rules genericExtensions
 --rules trailingClosures
+--rules semicolons
