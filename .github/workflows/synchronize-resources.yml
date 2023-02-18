@@ -31,7 +31,7 @@ env:
 jobs:
   sync:
     name: Synchronize
-    if: !github.event.pull_request.merged || !contains(github.event.pull_request.labels.*.name, 'skip-sync')
+    if: "!github.event.pull_request.merged && !contains(github.event.pull_request.labels.*.name, 'skip-sync'))"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
