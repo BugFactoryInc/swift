@@ -91,3 +91,4 @@
 --rules preferForLoop
 --rules conditionalAssignment
 --rules wrapMultilineConditionalAssignment
+--rules semicolons
