@@ -99,7 +99,8 @@ def format_object(formatter, object_hash, file_path):
             re.sub(file_path_placeholder, file_path, formatter),
             shell=True,
             stdin=get_content.stdout,
-            stdout=subprocess.PIPE
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE
             )
     write_object = subprocess.Popen(
             ['git', 'hash-object', '-w', '--stdin'],
@@ -114,7 +115,13 @@ def format_object(formatter, object_hash, file_path):
         raise ValueError('unable to read file content from object database: ' + object_hash)
 
     if format_content.wait() != 0:
-        raise Exception('formatter exited with non-zero status') # TODO: capture stderr from format command
+        out, err = format_content.communicate()
+        print(f"Error for file {file_path}")
+        print("Standard output:")
+        print(out)
+        print("Standard error:")
+        print(err)
+        raise Exception('formatter exited with non-zero status')
 
     new_hash, err = write_object.communicate()
 
