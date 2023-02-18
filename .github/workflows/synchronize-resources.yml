@@ -11,6 +11,7 @@ on:
       - 'Sources/AirbnbSwiftFormatTool/swiftlint.yml'
       - '.github/workflows/synchronize-resources.yml'
       - '.pre-commit-config.yaml'
+      - 'scripts/fix-copyright-header.py'
       - 'scripts/git-format-staged.py'
       - 'scripts/swiftformat-wrapper.sh'
   push:
@@ -21,6 +22,7 @@ on:
       - 'Sources/AirbnbSwiftFormatTool/swiftlint.yml'
       - '.github/workflows/synchronize-resources.yml'
       - '.pre-commit-config.yaml'
+      - 'scripts/fix-copyright-header.py'
       - 'scripts/git-format-staged.py'
       - 'scripts/swiftformat-wrapper.sh'
   workflow_dispatch:
@@ -45,6 +47,8 @@ jobs:
                 to: .swiftlint.yml
               - from: .pre-commit-config.yaml
                 to: .pre-commit-config.yaml
+              - from: scripts/fix-copyright-header.py
+                to: scripts/fix-copyright-header.py
               - from: scripts/git-format-staged.py
                 to: scripts/git-format-staged.py
               - from: scripts/swiftformat-wrapper.sh
@@ -57,6 +61,8 @@ jobs:
                 to: .swiftlint.yml
               - from: .pre-commit-config.yaml
                 to: .pre-commit-config.yaml
+              - from: scripts/fix-copyright-header.py
+                to: scripts/fix-copyright-header.py
               - from: scripts/git-format-staged.py
                 to: scripts/git-format-staged.py
               - from: scripts/swiftformat-wrapper.sh
