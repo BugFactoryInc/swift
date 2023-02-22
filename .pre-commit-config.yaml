@@ -12,7 +12,7 @@ repos:
         entry: scripts/fix-copyright-header.py
         language: system
         files: '.*\.swift$'
-        exclude: '^Package\.swift$'
+        exclude: 'Package\.swift$'
         pass_filenames: true
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.3.0
