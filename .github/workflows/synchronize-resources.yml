@@ -12,8 +12,6 @@ on:
       - '.github/workflows/synchronize-resources.yml'
       - '.pre-commit-config.yaml'
       - 'scripts/fix-copyright-header.py'
-      - 'scripts/git-format-staged.py'
-      - 'scripts/swiftformat-wrapper.sh'
   push:
     branches:
       - master
@@ -23,8 +21,6 @@ on:
       - '.github/workflows/synchronize-resources.yml'
       - '.pre-commit-config.yaml'
       - 'scripts/fix-copyright-header.py'
-      - 'scripts/git-format-staged.py'
-      - 'scripts/swiftformat-wrapper.sh'
   workflow_dispatch:
 
 env:
@@ -49,10 +45,6 @@ jobs:
                 to: .pre-commit-config.yaml
               - from: scripts/fix-copyright-header.py
                 to: scripts/fix-copyright-header.py
-              - from: scripts/git-format-staged.py
-                to: scripts/git-format-staged.py
-              - from: scripts/swiftformat-wrapper.sh
-                to: scripts/swiftformat-wrapper.sh
           - repository: drinklet-server
             files:
               - from: Sources/AirbnbSwiftFormatTool/airbnb.swiftformat
@@ -63,10 +55,6 @@ jobs:
                 to: .pre-commit-config.yaml
               - from: scripts/fix-copyright-header.py
                 to: scripts/fix-copyright-header.py
-              - from: scripts/git-format-staged.py
-                to: scripts/git-format-staged.py
-              - from: scripts/swiftformat-wrapper.sh
-                to: scripts/swiftformat-wrapper.sh
 
     defaults:
       run:
