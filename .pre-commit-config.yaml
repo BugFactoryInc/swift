@@ -3,10 +3,11 @@ repos:
     hooks:
       - id: swiftformat
         name: SwiftFormat
-        entry: scripts/swiftformat-wrapper.sh
+        entry: swiftformat
         language: system
         files: '.*\.swift$'
-        pass_filenames: false
+        exclude: 'Package\.swift$'
+        pass_filenames: true
       - id: fix-copyright-header
         name: Fix copyright header
         entry: scripts/fix-copyright-header.py
