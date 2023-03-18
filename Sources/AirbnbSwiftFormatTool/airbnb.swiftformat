@@ -64,6 +64,7 @@
 --rules spaceAroundBraces
 --rules spaceInsideParens
 --rules spaceAroundParens
+--rules spaceAroundOperators
 --rules enumNamespaces
 --rules blockComments
 --rules spaceAroundComments
