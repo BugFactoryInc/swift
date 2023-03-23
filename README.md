@@ -1806,12 +1806,14 @@ _You can enable the following settings in Xcode by running [this script](resourc
     case warning = "warning"
   }
 
+  // WRONG
   enum UserType: String {
     case owner
     case manager
     case member
   }
 
+  // WRONG
   enum Planet: Int {
     case mercury = 0
     case venus = 1
@@ -1823,6 +1825,7 @@ _You can enable the following settings in Xcode by running [this script](resourc
     case neptune = 7
   }
 
+  // WRONG
   enum ErrorCode: Int {
     case notEnoughMemory
     case invalidResource
@@ -1830,11 +1833,13 @@ _You can enable the following settings in Xcode by running [this script](resourc
   }
 
   // RIGHT
+  // Relying on Swift's automatic enum values
   enum ErrorType: String {
     case error
     case warning
   }
 
+  // RIGHT
   /// These are written to a logging service. Explicit values ensure they're consistent across binaries.
   // swiftformat:disable redundantRawValues
   enum UserType: String {
@@ -1844,6 +1849,8 @@ _You can enable the following settings in Xcode by running [this script](resourc
   }
   // swiftformat:enable redundantRawValues
 
+  // RIGHT
+  // Relying on Swift's automatic enum values
   enum Planet: Int {
     case mercury
     case venus
@@ -1855,6 +1862,7 @@ _You can enable the following settings in Xcode by running [this script](resourc
     case neptune
   }
 
+  // RIGHT
   /// These values come from the server, so we set them here explicitly to match those values.
   enum ErrorCode: Int {
     case notEnoughMemory = 0
@@ -2024,19 +2032,19 @@ _You can enable the following settings in Xcode by running [this script](resourc
 
   ```swift
   // WRONG
-  switch anEnum {
-  case .a:
-    // Do something
+  switch trafficLight {
+  case .greenLight:
+    // Move your vehicle
   default:
-    // Do something else.
+    // Stop your vehicle
   }
 
   // RIGHT
-  switch anEnum {
-  case .a:
-    // Do something
-  case .b, .c:
-    // Do something else.
+  switch trafficLight {
+  case .greenLight:
+    // Move your vehicle
+  case .yellowLight, .redLight:
+    // Stop your vehicle
   }
   ```
 
