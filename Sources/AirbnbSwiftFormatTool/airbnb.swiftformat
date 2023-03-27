@@ -10,7 +10,7 @@
 --wraparguments before-first # wrapArguments
 --wrapparameters before-first # wrapArguments
 --wrapcollections before-first # wrapArguments
---wrapconditions before-first # wrapArguments
+--wrapconditions after-first # wrapArguments
 --wrapreturntype if-multiline #wrapArguments
 --closingparen balanced # wrapArguments
 --wraptypealiases before-first # wrapArguments
@@ -24,14 +24,17 @@
 --emptybraces no-space # emptyBraces
 --someAny disabled # opaqueGenericParameters
 --closurevoid preserve # redundantVoidReturnType
+--guardelse same-line # elseOnSameLine
 
 --maxwidth 180 # wrap
 
 # rules
 --rules anyObjectProtocol
 --rules blankLinesBetweenScopes
+--rules conditionalAssignment
 --rules consecutiveSpaces
 --rules duplicateImports
+--rules elseOnSameLine
 --rules extensionAccessControl
 --rules hoistPatternLet
 --rules indent
@@ -50,7 +53,6 @@
 --rules trailingSpace
 --rules typeSugar
 --rules wrap
---rules wrapMultilineStatementBraces
 --rules wrapArguments
 --rules wrapAttributes
 --rules braces

@@ -53,10 +53,8 @@ struct AirbnbSwiftFormatTool: ParsableCommand {
             log("SwiftLint ended with exit code \(swiftLint.terminationStatus)")
         }
 
-        if
-            swiftFormat.terminationStatus == SwiftFormatExitCode.lintFailure ||
-            swiftLint.terminationStatus == SwiftLintExitCode.lintFailure
-        {
+        if swiftFormat.terminationStatus == SwiftFormatExitCode.lintFailure ||
+            swiftLint.terminationStatus == SwiftLintExitCode.lintFailure {
             throw ExitCode.failure
         }
 
