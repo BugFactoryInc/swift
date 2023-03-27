@@ -16,9 +16,7 @@ struct AirbnbSwiftFormatPlugin {
         context: CommandContext,
         inputPaths: [String],
         arguments: [String]
-    )
-        throws
-    {
+    ) throws {
         var argumentExtractor = ArgumentExtractor(arguments)
 
         // Filter out any excluded paths passed in with `--exclude`
@@ -172,12 +170,12 @@ struct SwiftVersion: Comparable {
     var major: Int
     var minor: Int
 
-    static func ==(_ lhs: SwiftVersion, _ rhs: SwiftVersion) -> Bool {
+    static func == (_ lhs: SwiftVersion, _ rhs: SwiftVersion) -> Bool {
         lhs.major == rhs.major
             && lhs.minor == rhs.minor
     }
 
-    static func <(_ lhs: SwiftVersion, _ rhs: SwiftVersion) -> Bool {
+    static func < (_ lhs: SwiftVersion, _ rhs: SwiftVersion) -> Bool {
         if lhs.major == rhs.major {
             lhs.minor < rhs.minor
         } else {
@@ -220,11 +218,9 @@ extension Package {
             guard fileName.hasPrefix("Package"), fileName.hasSuffix(".swift") else { continue }
 
             // Parse the Swift tools version from the file body if it starts with a comment like `// swift-tools-version: 5.8`
-            if
-                let fileContents = try? String(contentsOf: fileURL),
-                fileContents.hasPrefix("// swift-tools-version:"),
-                let swiftVersion = parseSwiftVersion(from: fileContents.dropFirst("// swift-tools-version:".count))
-            {
+            if let fileContents = try? String(contentsOf: fileURL),
+               fileContents.hasPrefix("// swift-tools-version:"),
+               let swiftVersion = parseSwiftVersion(from: fileContents.dropFirst("// swift-tools-version:".count)) {
                 supportedSwiftVersions.append(swiftVersion)
             }
         }
@@ -236,12 +232,10 @@ extension Package {
     private func parseSwiftVersion(from string: Substring) -> SwiftVersion? {
         var string = Substring(string.trimmingCharacters(in: .whitespacesAndNewlines))
 
-        guard
-            string.count >= 3,
-            let major = string.popFirst().flatMap({ Int(String($0)) }),
-            string.popFirst() == ".",
-            let minor = string.popFirst().flatMap({ Int(String($0)) })
-        else { return nil }
+        guard string.count >= 3,
+              let major = string.popFirst().flatMap({ Int(String($0)) }),
+              string.popFirst() == ".",
+              let minor = string.popFirst().flatMap({ Int(String($0)) }) else { return nil }
 
         return SwiftVersion(major: major, minor: minor)
     }

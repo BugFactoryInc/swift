@@ -49,10 +49,8 @@ struct AirbnbSwiftFormatTool: ParsableCommand {
         // Run SwiftLint in autocorrect mode first, so that if autocorrect fixes all of the SwiftLint violations
         // then the following lint-only invocation will not report any violations.
         let swiftLintAutocorrectExitCode: Int32? =
-            if
-                // When only linting, we shouldn't run SwiftLint with autocorrect enabled
-                !lintOnly
-            {
+            if // When only linting, we shouldn't run SwiftLint with autocorrect enabled
+            !lintOnly {
                 try swiftLintAutocorrect.run()
             } else {
                 nil
@@ -62,11 +60,9 @@ struct AirbnbSwiftFormatTool: ParsableCommand {
         // because when in autocorrect mode SwiftLint won't emit any lint warnings.
         let swiftLintExitCode = try swiftLint.run()
 
-        if
-            swiftFormatExitCode == SwiftFormatExitCode.lintFailure ||
+        if swiftFormatExitCode == SwiftFormatExitCode.lintFailure ||
             swiftLintExitCode == SwiftLintExitCode.lintFailure ||
-            swiftLintAutocorrectExitCode == SwiftLintExitCode.lintFailure
-        {
+            swiftLintAutocorrectExitCode == SwiftLintExitCode.lintFailure {
             throw ExitCode.failure
         }
 
@@ -79,10 +75,8 @@ struct AirbnbSwiftFormatTool: ParsableCommand {
             throw ExitCode(swiftLintExitCode)
         }
 
-        if
-            let swiftLintAutocorrectExitCode,
-            swiftLintAutocorrectExitCode != EXIT_SUCCESS
-        {
+        if let swiftLintAutocorrectExitCode,
+           swiftLintAutocorrectExitCode != EXIT_SUCCESS {
             throw ExitCode(swiftLintAutocorrectExitCode)
         }
     }
