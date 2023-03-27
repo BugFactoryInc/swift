@@ -16,9 +16,7 @@ struct AirbnbSwiftFormatPlugin {
         context: CommandContext,
         inputPaths: [String],
         arguments: [String]
-    )
-        throws
-    {
+    ) throws {
         var argumentExtractor = ArgumentExtractor(arguments)
 
         // Filter out any excluded paths passed in with `--exclude`
