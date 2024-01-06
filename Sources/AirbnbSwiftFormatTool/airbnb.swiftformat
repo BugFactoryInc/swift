@@ -1,3 +1,6 @@
+# Exclude checkout directories for common package managers
+--exclude Carthage,Pods,.build
+
 # options
 --swiftversion 5.9
 --self remove # redundantSelf
@@ -12,11 +15,18 @@
 --wrapcollections before-first # wrapArguments
 --wrapconditions after-first # wrapArguments
 --wrapreturntype preserve #wrapArguments
+--wrapeffects if-multiline #wrapArguments
 --closingparen balanced # wrapArguments
 --wraptypealiases before-first # wrapArguments
 --funcattributes prev-line # wrapAttributes
+--computedvarattrs prev-line # wrapAttributes
+--storedvarattrs same-line # wrapAttributes
+--complexattrs prev-line # wrapAttributes
 --typeattributes prev-line # wrapAttributes
 --wrapternary before-operators # wrap
+--structthreshold 20 # organizeDeclarations
+--enumthreshold 20 # organizeDeclarations
+--organizetypes class,struct,enum,extension,actor # organizeDeclarations
 --extensionacl on-declarations # extensionAccessControl
 --patternlet inline # hoistPatternLet
 --redundanttype inferred # redundantType
@@ -25,6 +35,9 @@
 --someAny disabled # opaqueGenericParameters
 --closurevoid preserve # redundantVoidReturnType
 --guardelse same-line # elseOnSameLine
+--elseposition same-line #elseOnSameLine
+--oneLineForEach wrap #preferForLoop
+--shortoptionals always #typeSugar
 
 --maxwidth 180 # wrap
 
@@ -38,6 +51,8 @@
 --rules extensionAccessControl
 --rules hoistPatternLet
 --rules indent
+--rules markTypes
+--rules organizeDeclarations
 --rules redundantParens
 --rules redundantReturn
 --rules redundantSelf
@@ -53,6 +68,7 @@
 --rules trailingSpace
 --rules typeSugar
 --rules wrap
+--rules wrapMultilineStatementBraces
 --rules wrapArguments
 --rules wrapAttributes
 --rules braces
@@ -60,6 +76,7 @@
 --rules redundantInit
 --rules redundantVoidReturnType
 --rules redundantOptionalBinding
+--rules redundantInternal
 --rules unusedArguments
 --rules spaceInsideBrackets
 --rules spaceInsideBraces
@@ -79,3 +96,6 @@
 --rules genericExtensions
 --rules trailingClosures
 --rules semicolons
+--rules sortTypealiases
+--rules preferForLoop
+--rules wrapMultilineConditionalAssignment
