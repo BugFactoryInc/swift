@@ -40,6 +40,11 @@ let package = Package(
             ]
         ),
 
+        .testTarget(
+            name: "AirbnbSwiftFormatToolTests",
+            dependencies: ["AirbnbSwiftFormatTool"]
+        ),
+
         .binaryTarget(
             name: "SwiftFormat",
             url: "https://github.com/calda/SwiftFormat/releases/download/0.53-beta-8/SwiftFormat.artifactbundle.zip",
