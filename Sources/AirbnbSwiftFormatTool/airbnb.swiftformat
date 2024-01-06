@@ -4,7 +4,7 @@
 # options
 --swiftversion 5.9
 --self remove # redundantSelf
---importgrouping testable-bottom # sortedImports
+--importgrouping testable-last # sortImports
 --commas always # trailingCommas
 --trimwhitespace always # trailingSpace
 --indent 4 #indent

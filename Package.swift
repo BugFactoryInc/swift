@@ -28,6 +28,7 @@ let package = Package(
                 "SwiftLintBinary",
             ]
         ),
+
         .executableTarget(
             name: "AirbnbSwiftFormatTool",
             dependencies: [
